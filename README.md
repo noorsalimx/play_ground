@@ -11,3 +11,5 @@ http://web.archive.org/
 https://devdocs.io/
 
 https://seanhalpin.io
+
+https://colorhunt.co/
