@@ -10,6 +10,6 @@ http://web.archive.org/
 
 https://devdocs.io/
 
-https://seanhalpin.io
+seanhalpin.io
 
 https://colorhunt.co/
