@@ -2,7 +2,6 @@
 
 ### **<pre>[MDN HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) | [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | [MDN JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)</pre>**
 
-***
 http://web.archive.org/
 
 https://devdocs.io/
