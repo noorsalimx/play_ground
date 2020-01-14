@@ -1,4 +1,4 @@
-## Important links --
+## few handy links --
 
 https://developer.mozilla.org/en-US/docs/Web/HTML
 
@@ -13,3 +13,11 @@ https://devdocs.io/
 seanhalpin.io
 
 https://colorhunt.co/
+
+https://coolors.co/
+
+https://nucleoapp.com/
+
+https://www.cssfontstack.com/
+
+
