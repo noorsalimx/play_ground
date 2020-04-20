@@ -2,6 +2,10 @@ body {
   background-color: #f4f9f4;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h3 {
   color: #66bfbf;
@@ -18,5 +22,5 @@ hr {
 
 img {
   border-radius: 50%;
-  height: 15%;
+  height: 170px;
 }
