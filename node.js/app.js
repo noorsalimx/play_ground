@@ -1,5 +1,6 @@
-const car = require("./car");
+const Service = require("./Service");
 
-car.brand();
-car.color();
-car.readFile();
+Service.brand();
+Service.color();
+Service.readFile();
+Service.Myfunc();
