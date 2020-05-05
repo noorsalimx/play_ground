@@ -31,8 +31,8 @@
 
 <footer style="text-align:center; position:fixed; bottom:0; left:0; background-color:#ff8080; width: 100%;"><br>
 	Designed by <b><i>NSG</i></b><br>
-	&copy; 2018 All Rights Reserved
-	<p>Contact me : <a href="mailto:nsg1810@cse.jgec.ac.in">nsg1810@cse.jgec.ac.in</p>
+	&copy; 2018-2020 All Rights Reserved
+	<p>Contact me : <a href="mailto:mail@email.com">mail@email.com</p>
 </footer>
 
 </html>

@@ -22,8 +22,8 @@ function readFile() {
 
 // Event Emitter
 
-const EventEmitter = require("events");
-const door = new EventEmitter();
+const event = require("events");
+const door = new event.EventEmitter();
 
 function Myfunc() {
   console.log("HI THERE ! HAPPY LEARNING");
