@@ -1,0 +1,15 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "editor.tokenColorCustomizations": null,
+  "files.autoSave": "afterDelay",
+  "files.associations": {},
+  "prettier.printWidth": 140,
+  "editor.formatOnPaste": true,
+  "prettier.endOfLine": "crlf",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "color-highlight.languages": ["*"]
+}
