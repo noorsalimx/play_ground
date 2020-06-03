@@ -1,5 +1,5 @@
 {
-  "name": "express",
+  "name": "node-express",
   "version": "1.0.0",
   "description": "Demo project",
   "main": "index.js",
@@ -11,5 +11,8 @@
     "node"
   ],
   "author": "Noor Salim",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
