@@ -1,6 +1,8 @@
+const { green, red } = require("chalk");
 const validator = require("validator");
 const utils = require("./utils");
 
-const res = validator.isEmail("jhzkdchjkzdhc");
+const res = validator.isEmail("abc@abc.com");
 
-console.log(res);
+if (res) console.log(green(res));
+else console.log(red.bold(res));
