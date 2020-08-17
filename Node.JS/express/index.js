@@ -1,7 +1,7 @@
-const Joi = require("joi");
+// const Joi = require("joi");
 const express = require("express");
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 //app.use(express.json);
 
 const courses = [
@@ -16,11 +16,11 @@ app.get("/", (req, res) => {
   res.send('Type "/api/courses" to see course details');
 });
 
-/*
-app.get('/api/num', (req, res) => {
-    res.send([1, 2, 3, 4]);
+app.get("/api/num", (req, res) => {
+  res.send([1, 2, 3, 4]);
 });
 
+/*
 app.get('/api/num/:id', (req, res) => {
     res.send(req.params.id); //type "/api/num/12"
 });
