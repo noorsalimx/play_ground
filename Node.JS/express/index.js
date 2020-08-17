@@ -2,7 +2,8 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-//app.use(express.json);
+
+app.use(express.json());
 
 const courses = [
   { id: 1, name: "course1" },
@@ -40,7 +41,7 @@ app.get("/api/courses", (req, res) => {
 
 app.get("/api/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
-  if (!course) res.status(404).send("The course ID was not found !!"); // 404 Object not found
+  if (!course) return res.status(404).send("The course ID was not found !!"); // 404 Object not found
 
   console.log(`
 /*-----------------------------------------------*
@@ -56,13 +57,12 @@ app.get("/api/courses/:id", (req, res) => {
 //Handle POST method ------------------------------------
 app.post("/api/courses", (req, res) => {
   //Input validation in normal way
-  /*
-    if(!req.body.name || req.body.name.length < 4) {
-        res.status(400).send('Name should be minimum 4 characters'); // 400 Bad request
-        return;
-    }
-    */
-  //Input Validation using Joi
+  // 400 Bad request
+  if (!req.body.name || req.body.name.length < 5) {
+    return res.status(400).send({ error: "Name is required and should be minimum 5 characters" });
+  }
+
+  /*   //Input Validation using Joi
   const schema = {
     name: Joi.string().min(4).required(),
   };
@@ -71,7 +71,7 @@ app.post("/api/courses", (req, res) => {
   if (result.error) {
     res.status(400).send(result.error.details[0].message);
     return;
-  }
+  } */
 
   const course = {
     id: courses.length + 1,
@@ -85,17 +85,14 @@ app.post("/api/courses", (req, res) => {
 app.put("/api/courses/:id", (req, res) => {
   //Look up the course //If doesn't exit return 404
   const course = courses.find((c) => c.id === parseInt(req.params.id));
-  if (!course) res.status(404).send("The course ID was not found !!");
+  if (!course) return res.status(404).send("The course ID was not found !!");
 
-  //Validate //If Invalid return 400 - Bad request
+  //If Invalid return 400 - Bad request
   const schema = {
     name: Joi.string().min(4).required(),
   };
-  const result = Joi.validate(req.body, schema);
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
-    return;
-  }
+  const { error } = Joi.validate(req.body, schema);
+  if (error) return res.status(400).send(error.details[0].message);
 
   course.name = req.body.name; //Update course
   res.send(course); //Return Updated course details
