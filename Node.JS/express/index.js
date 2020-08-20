@@ -1,11 +1,12 @@
 const Joi = require("@hapi/joi");
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
 const logger = require("./logger");
+const morgan = require("morgan");
 
 app.use(express.json());
 app.use(logger); // custom middleware
+app.use(morgan("tiny"));
 
 const courses = [
   { id: 1, name: "course1" },
@@ -22,12 +23,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/courses", (req, res) => {
-  console.log(`
-    /*-----------------------------------------------*
-     *                                               *
-     *                   GLOBAL                      *
-     *                                               *
-     ------------------------------------------------*/`);
   res.send(courses);
 });
 
@@ -80,4 +75,5 @@ function validateInput(body) {
   return schema.validate(body);
 }
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App is listening to port ${port}`));
