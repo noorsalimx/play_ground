@@ -2,8 +2,10 @@ const Joi = require("@hapi/joi");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
+const logger = require("./logger");
 
 app.use(express.json());
+app.use(logger); // custom middleware
 
 const courses = [
   { id: 1, name: "course1" },
@@ -15,7 +17,8 @@ const courses = [
 
 /* METHOD : GET ----- */
 app.get("/", (req, res) => {
-  res.send("Type '<h3>/api/courses</h3>' to see course details");
+  const newLocal = "<h2>Type <b style='color:red;'>/api/courses</b> to see course details</h2>";
+  res.send(newLocal);
 });
 
 app.get("/api/courses", (req, res) => {
