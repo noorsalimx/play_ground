@@ -1,8 +1,8 @@
 const Joi = require("@hapi/joi");
 const express = require("express");
-const app = express();
-const logger = require("./logger");
 const morgan = require("morgan");
+const logger = require("./logger");
+const app = express();
 
 app.use(express.json());
 app.use(logger); // custom middleware
