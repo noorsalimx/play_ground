@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const _const = require("./constant");
-const MONGODB_URI = process.env.MONGODB_URI || _const.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || _const.MONGODB_URI || "mongodb://localhost/DB_NAME";
 
 const options = {
   useNewUrlParser: true,
