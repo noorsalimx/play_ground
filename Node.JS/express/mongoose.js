@@ -15,7 +15,7 @@ mongoose.connect(MONGODB_URI, options, (err) => {
     console.error("⚠️! Unable to connect to db...", err.message);
     throw new Error(err);
   }
-  console.log("Successfully connected to db...");
+  console.log("Connected to db...");
 });
 
 /* //Get the default connection
