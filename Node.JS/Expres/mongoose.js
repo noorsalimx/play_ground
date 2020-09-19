@@ -17,37 +17,40 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:')); */
 
-const courseSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 150,
-  },
-  author: String,
-  topics: [String],
-  isAvailable: {
-    type: Boolean,
-    default: false,
-  },
-  price: {
-    type: Number,
-    required: function () {
-      return this.isAvailable;
+const courseSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      minlength: 5,
+      maxlength: 150,
     },
-    min: 29,
-    max: 99,
+    author: String,
+    topics: [String],
+    isAvailable: {
+      type: Boolean,
+      default: false,
+    },
+    price: {
+      type: Number,
+      required: function () {
+        return this.isAvailable;
+      },
+      min: 29,
+      max: 99,
+    },
+    createdAt: { type: Date, default: Date.now() },
+    updatedAt: { type: Date, default: Date.now() },
   },
-  createdAt: { type: Date, default: Date.now() },
-  updatedAt: { type: Date, default: Date.now() },
-});
+  { collection: "COURSES" }
+);
 const Course = mongoose.model("Course", courseSchema);
 
 const course = new Course({
   name: "Angular",
   topics: ["angular", "frontend"],
   author: "Author1",
-  price: 25,
+  price: 35,
 });
 
 /* course.save((err, res) => {
