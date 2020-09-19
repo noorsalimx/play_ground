@@ -1,9 +1,9 @@
 # Node rules:
 
 .vscode
+constant.js
 
 ## Dependency directory
 node_modules
-
 linkedin
 local
