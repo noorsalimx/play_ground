@@ -2,49 +2,51 @@ const Joi = require("@hapi/joi");
 const express = require("express");
 const router = express.Router();
 
-const genres = [
-  { id: 1, name: "Action" },
-  { id: 2, name: "Horror" },
-  { id: 3, name: "Romance" },
+const courses = [
+  { id: 1, name: "course1" },
+  { id: 2, name: "course2" },
+  { id: 3, name: "course3" },
+  { id: 4, name: "course4" },
+  { id: 5, name: "course5" },
 ];
 
 /* METHOD : GET ----- */
-router.get("/genres", (req, res) => {
-  res.send(genres);
+router.get("/courses", (req, res) => {
+  res.send(courses);
 });
 
-router.get("/genres/:id", (req, res) => {
-  const genre = genres.find((c) => c.id === parseInt(req.params.id));
-  if (!genre) return res.status(404).send("The movie with the given ID was not found !"); // 404 Object not found
+router.get("/courses/:id", (req, res) => {
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) return res.status(404).send("The course with the given ID was not found !"); // 404 Object not found
 
-  res.send(genre);
+  res.send(course);
 });
 
 /* METHOD : POST ----- */
-router.post("/genres", (req, res) => {
+router.post("/courses", (req, res) => {
   const { error } = validateInput(req.body);
   if (error) return res.status(400).send({ error: error.details[0].message });
 
-  const genre = {
+  const course = {
     id: courses.length + 1,
     name: req.body.name,
   };
-  genres.push(genre);
-  res.send(genre);
+  courses.push(course);
+  res.send(course);
 });
 
 /* METHOD : PUT ----- */
-router.put("/genres/:id", (req, res) => {
+router.put("/courses/:id", (req, res) => {
   /* Look up the course, If doesn't exit return 404 */
-  const genre = genres.find((c) => c.id === parseInt(req.params.id));
-  if (!genre) return res.status(404).send("The course with the given ID was not found !");
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) return res.status(404).send("The course with the given ID was not found !");
 
   /* If Invalid return 400 - Bad request */
   const { error } = validateInput(req.body);
   if (error) return res.status(400).send({ error: error.details[0].message });
 
-  genre.name = req.body.name; //Update course
-  res.send(genre); //Return Updated course details
+  course.name = req.body.name; //Update course
+  res.send(course); //Return Updated course details
 });
 
 /* Input Validation */

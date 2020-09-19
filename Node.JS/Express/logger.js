@@ -1,5 +1,5 @@
 function log(req, res, next) {
-  console.log("HEADERS :", req.headers);
+  console.log("headers :", req.headers);
   next();
 }
 

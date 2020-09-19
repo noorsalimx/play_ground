@@ -1,10 +1,10 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
 const logger = require("./logger");
-const router = require("./routes/Router");
+const router = require("./routes/Genre");
+const DBConnector = require("./dao/DBConnector");
 
 const app = express();
 app.use(express.json());
@@ -20,12 +20,10 @@ app.use(logger); // custom middleware
   console.log("Morgan enabled...");
 } */
 
-app.get("/", (req, res) => {
-  const newLocal = "<h2>Type <b style='color:red;'>/api/genres</b> to see genre details</h2>";
-  res.send(newLocal);
-});
-
-app.use("/api", router);
+app.use("/", router);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`App is listening to port ${PORT}...`));
+app.listen(PORT, async () => {
+  await DBConnector.createConnection();
+  console.log(`App is listening to port ${PORT}...`);
+});
