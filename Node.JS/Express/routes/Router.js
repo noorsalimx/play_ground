@@ -11,6 +11,11 @@ const courses = [
 ];
 
 /* METHOD : GET ----- */
+router.get("/", (req, res) => {
+  const newLocal = "<h2>Type <b style='color:red;'>/api/genres</b> to see genre details</h2>";
+  res.send(newLocal);
+});
+
 router.get("/courses", (req, res) => {
   res.send(courses);
 });

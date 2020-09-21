@@ -3,7 +3,9 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
 const logger = require("./logger");
-const router = require("./routes/Genre");
+const router = require("./routes/Router");
+const genreRouter = require("./routes/Genres");
+const customerRouter = require("./routes/Customers");
 const DBConnector = require("./dao/DBConnector");
 
 const app = express();
@@ -21,6 +23,8 @@ app.use(logger); // custom middleware
 } */
 
 app.use("/", router);
+app.use("/api/genres", genreRouter);
+app.use("/api/customers", customerRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
