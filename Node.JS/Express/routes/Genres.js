@@ -39,7 +39,6 @@ router.put("/:id", async (req, res) => {
   const genre = await Genre.findByIdAndUpdate(req.params.id, req.body, { new: true });
   if (!genre) return res.status(404).send("The genre with the given ID was not found !");
 
-  genre.name = req.body.name; //Update genre
   res.send(genre); //Return Updated genre details
 });
 
@@ -54,6 +53,7 @@ router.put("/release/:id", async (req, res) => {
     genre.isAvailable = true;
   }
   const result = await Genre.updateOne({ _id: req.params.id }, genre);
+
   res.send(result); //Return Updated genre details
 });
 

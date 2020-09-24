@@ -37,7 +37,6 @@ router.put("/:id", async (req, res) => {
   const customer = await Customer.findByIdAndUpdate(req.params.id, req.body, { new: true });
   if (!customer) return res.status(404).send("The customer with the given ID was not found !");
 
-  customer.name = req.body.name;
   res.send(customer);
 });
 
