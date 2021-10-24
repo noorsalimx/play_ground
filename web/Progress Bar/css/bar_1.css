@@ -1,0 +1,29 @@
+/* body {
+  margin: auto;
+} */
+.container {
+  position: relative;
+  background-color: #ccc;
+  border-radius: 10px;
+  height: 15px;
+}
+
+.container .progress-bar {
+  position: absolute;
+  background-color: darkcyan;
+  border-radius: 10px;
+  height: 100%;
+}
+
+#play-animation {
+  animation: progress-animation 10s forwards;
+}
+
+@keyframes progress-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
