@@ -5,6 +5,7 @@ const logger = require('./logger');
 const router = require('./routes/Router');
 const genreRouter = require('./routes/Genres');
 const customerRouter = require('./routes/Customers');
+const otherRouter = require('./routes/OtherRouter');
 const DBConnector = require('./dao/DBConnector');
 
 const app = express();
@@ -18,9 +19,10 @@ app.use(logger); // custom middleware
 app.use('/', router);
 app.use('/api/genres', genreRouter);
 app.use('/api/customers', customerRouter);
+app.use('/api/other', otherRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
-  await DBConnector.createConnection();
+  // await DBConnector.createConnection();
   console.log(`App is listening to port ${PORT}...`);
 });
