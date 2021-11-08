@@ -1,0 +1,45 @@
+<!--
+  dir/file: Progress Bar/bar_2.html
+  @author: (c) Noor Salim
+  created_at: 2021-11-09T00:26:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar</title>
+    <link rel="stylesheet" href="./css/bar_2.css" />
+  </head>
+  <body>
+    <div class="p-bar">
+      <div class="outer">
+        <div class="inner">
+          <div id="number"></div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+        <defs>
+          <linearGradient id="GradientColor">
+            <stop offset="0%" stop-color="#e91e63" />
+            <stop offset="100%" stop-color="#673ab7" />
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+      </svg>
+    </div>
+
+    <script>
+      let counter = 0;
+      let number = document.getElementById('number');
+      setInterval(() => {
+        if (counter === 100) clearInterval();
+        else {
+          counter++;
+          number.innerHTML = counter + '%';
+        }
+      }, 44.5);
+    </script>
+  </body>
+</html>
