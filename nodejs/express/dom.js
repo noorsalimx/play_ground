@@ -1,3 +1,41 @@
-const parser = require('xmldom');
-const xml =
-  '<xml xmlns="a" xmlns:c="./lite">\n' + '\t<child>test</child>\n' + '\t<child></child>\n' + '\t<child/>\n' + '</xml>';
+const { DOMParser } = require('xmldom');
+
+const xml = `<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//NSN//DTD DITA Map//EN" "nsnmap.dtd">
+<map maptype="document" issue="01" mds-name="c290189887">
+ <title>DITA document Map</title>
+ <topicref href="concept@1.x.x" keys="__name" type="concept">
+ <reltable title="Five-column relationship table">
+  <relheader>
+   <relcolspec linking="sourceonly"/>
+   <relcolspec linking="targetonly" type="concept"/>
+   <relcolspec linking="targetonly" type="task"/>
+   <relcolspec linking="targetonly" type="reference"/>
+   <relcolspec linking="targetonly" type="troubleshooting"/>
+  </relheader>
+  <relrow>
+   <relcell/>
+   <relcell/>
+   <relcell/>
+   <relcell/>
+   <relcell/>
+  </relrow>
+ </reltable>
+ <reltable title="Two-column relationship table">
+  <relheader>
+   <relcolspec/>
+   <relcolspec/>
+  </relheader>
+  <relrow>
+   <relcell/>
+   <relcell/>
+  </relrow>
+ </reltable>
+</map>`;
+
+const doc = new DOMParser().parseFromString(xml);
+const docElement = doc.documentElement;
+const childs = docElement?.childNodes;
+// console.log(childs);
+console.log(docElement?.getAttribute('mds-name'));
+console.log(docElement?.getElementsByTagName('title')[0].textContent);

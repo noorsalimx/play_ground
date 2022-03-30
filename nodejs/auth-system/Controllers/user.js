@@ -3,7 +3,7 @@
  * @author: (c) Noor Salim
  * created_at: 2021-11-06T23:48:08
  */
-const axios = require('axios');
+
 const bcrypt = require('bcryptjs');
 const _ = require('lodash');
 const otpGenerator = require('otp-generator');
