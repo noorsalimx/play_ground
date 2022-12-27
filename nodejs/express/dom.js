@@ -1,41 +1,24 @@
 const { DOMParser } = require('xmldom');
+const fs = require('fs');
 
-const xml = `<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE map PUBLIC "-//NSN//DTD DITA Map//EN" "nsnmap.dtd">
-<map maptype="document" issue="01" mds-name="c290189887">
- <title>DITA document Map</title>
- <topicref href="concept@1.x.x" keys="__name" type="concept">
- <reltable title="Five-column relationship table">
-  <relheader>
-   <relcolspec linking="sourceonly"/>
-   <relcolspec linking="targetonly" type="concept"/>
-   <relcolspec linking="targetonly" type="task"/>
-   <relcolspec linking="targetonly" type="reference"/>
-   <relcolspec linking="targetonly" type="troubleshooting"/>
-  </relheader>
-  <relrow>
-   <relcell/>
-   <relcell/>
-   <relcell/>
-   <relcell/>
-   <relcell/>
-  </relrow>
- </reltable>
- <reltable title="Two-column relationship table">
-  <relheader>
-   <relcolspec/>
-   <relcolspec/>
-  </relheader>
-  <relrow>
-   <relcell/>
-   <relcell/>
-  </relrow>
- </reltable>
-</map>`;
-
-const doc = new DOMParser().parseFromString(xml);
-const docElement = doc.documentElement;
-const childs = docElement?.childNodes;
+// const xml = fs.readFileSync('./dom.xml', 'utf8');
+// const doc = new DOMParser().parseFromString(xml, 'utf8');
+// const docElement = doc.documentElement;
+// const childs = docElement?.childNodes;
 // console.log(childs);
-console.log(docElement?.getAttribute('mds-name'));
-console.log(docElement?.getElementsByTagName('title')[0].textContent);
+// console.log(docElement?.getAttribute('mds-name'));
+// console.log(docElement?.getElementsByTagName('title')[0].textContent);
+
+
+// const js = fs.readFileSync('./jsdom.js', 'utf8');
+// const jsdoc = new DOMParser().parseFromString(js, 'utf8');
+// console.log(jsdoc.documentElement);
+
+
+// const css = fs.readFileSync('./jquery-ui.min.css', 'utf8');
+// const cssdoc = new DOMParser().parseFromString(css, 'utf8');
+// console.log(cssdoc.documentElement);
+
+// const xlsx = fs.readFileSync('./Data.xlsx', 'utf8');
+// const xldoc = new DOMParser().parseFromString(xlsx, 'utf8');
+// console.log(xldoc.documentElement);
